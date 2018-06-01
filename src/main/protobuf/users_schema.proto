@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+message PUser {
+    string name = 1;
+    int32 age = 2;
+    string countryOfResidence = 3;
+    enum Gender {
+        FEMALE = 0;
+        MALE = 1;
+        OTHER = 2;
+    }
+    Gender gender = 4;
+}
+
+message PUsers {
+    repeated PUser users = 1;
+}
