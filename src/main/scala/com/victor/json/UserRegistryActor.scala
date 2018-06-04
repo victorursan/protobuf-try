@@ -1,13 +1,13 @@
 package com.victor.json
 
 import akka.actor.{ Actor, ActorLogging, Props }
+import com.victor.other.ActionPerformed
 
 final case class User(name: String, age: Int, countryOfResidence: String)
 final case class Users(users: Seq[User])
 
 object UserRegistryActor {
   final case object GetUsers
-  final case class ActionPerformed(description: String)
   final case class CreateUser(user: User)
   final case class GetUser(name: String)
   final case class DeleteUser(name: String)

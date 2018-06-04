@@ -1,12 +1,11 @@
 package com.victor.proto
 
-
-import akka.actor.{Actor, ActorLogging, Props}
-import users_schema.PUser
+import akka.actor.{ Actor, ActorLogging, Props }
+import com.victor.other.ActionPerformed
+import users_schema.{ PUser, PUsers }
 
 object ProtoRegistryActor {
   final case object GetUsers
-  final case class ActionPerformed(description: String)
   final case class CreateUser(user: PUser)
   final case class GetUser(name: String)
   final case class DeleteUser(name: String)
@@ -21,7 +20,7 @@ class ProtoRegistryActor extends Actor with ActorLogging {
 
   def receive: Receive = {
     case GetUsers =>
-      sender() ! Pusers
+      sender() ! PUsers
     case CreateUser(user) =>
       users += user
       sender() ! ActionPerformed(s"User ${user.name} created.")

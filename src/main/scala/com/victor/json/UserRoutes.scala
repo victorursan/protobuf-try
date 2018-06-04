@@ -11,21 +11,21 @@ import akka.http.scaladsl.server.directives.RouteDirectives.complete
 import akka.pattern.ask
 import akka.util.Timeout
 import com.victor.json.UserRegistryActor._
+import com.victor.other.ActionPerformed
 
 import scala.concurrent.Future
 import scala.concurrent.duration._
 import scala.language.postfixOps
 
 trait UserRoutes extends JsonSupport {
-  implicit def system: ActorSystem
 
   def userRegistryActor: ActorRef
+
+  implicit def system: ActorSystem
 
   lazy val log = Logging(system, classOf[UserRoutes])
 
   implicit lazy val timeout = Timeout(5 seconds)
-
-  //  implicit val companion =
 
   lazy val userRoutes: Route =
     pathPrefix("users") {

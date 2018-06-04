@@ -1,8 +1,8 @@
 package com.victor.json
 
 import akka.http.scaladsl.marshallers.sprayjson.SprayJsonSupport
-import UserRegistryActor.ActionPerformed
-import com.victor.Users
+
+import com.victor.other.ActionPerformed
 import spray.json.DefaultJsonProtocol
 
 trait JsonSupport extends SprayJsonSupport {
